@@ -1,0 +1,261 @@
+# AI/ML ENGINEERING PRACTICAL INTERVIEW TASK
+
+## Challenge:Intelligent Text Classification and Sentiment Analysis Using Deep Learning
+
+## 1. Problem Statement
+
+Develop an advanced AI/ML system that analyzes customer reviews and classifies their sentiment into three categories:
+
+- Positive
+- Negative
+- Neutral
+
+The system must learn from a labelled dataset, process raw text, identify meaningful linguistic patterns, compare traditional machine learning algorithms with deep learning approaches, and evaluate its performance on unseen data.
+
+The objective is to demonstrate strong practical knowledge of data science, NLP, feature engineering, deep learning, model optimization, and error analysis.
+
+**Important:** A basic sentiment classification model is not sufficient. You must experiment with different approaches, justify your decisions, and demonstrate measurable improvements.
+
+## 2. Required Technologies
+
+- Python
+- NumPy and Pandas
+- Scikit-learn
+- NLTK or spaCy
+- Matplotlib or Seaborn
+- PyTorch or TensorFlow/Keras
+- Hugging Face Transformers (for the advanced model)
+- Jupyter Notebook
+
+## 3. Dataset Requirements
+
+Use a publicly available, labelled sentiment dataset, such as a suitable customer review or product review dataset.
+
+The dataset must contain raw text and sentiment labels.
+
+Example:
+
+| Review | Sentiment |
+| --- | --- |
+| The product quality is excellent. | Positive |
+| The delivery was extremely disappointing. | Negative |
+| The product arrived yesterday. | Neutral |
+| The quality is good, but the price is too high. | Depends on the defined annotation policy |
+
+Document the dataset source, label definitions, and any limitations. Do not invent ground-truth labels without documenting how they were assigned.
+
+## 4. Task 1: Data Analysis and Text Preprocessing
+
+Analyze and prepare the dataset for model training.
+
+### Requirements
+
+1. Inspect dataset size, columns, data types, and label distribution.
+2. Identify missing text, duplicate reviews, and invalid labels.
+3. Analyze class imbalance.
+4. Investigate unusually short, long, or noisy reviews.
+5. Implement text preprocessing appropriate to the chosen models.
+6. Handle punctuation, URLs, special characters, and repeated whitespace where appropriate.
+7. Explain when stop-word removal, stemming, or lemmatization may help or harm sentiment classification.
+8. Prevent duplicate or near-duplicate reviews from leaking across training and test sets.
+
+**Deliverable:** A data analysis notebook with visualizations and a reusable preprocessing pipeline.
+
+## 5. Task 2: Feature Engineering and Traditional Machine Learning
+
+Build a baseline sentiment classification system using traditional machine learning.
+
+### Requirements
+
+Experiment with:
+
+- Bag of Words
+- TF-IDF features
+- Unigrams and bigrams
+
+Train and compare at least two suitable algorithms:
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+- Naive Bayes
+- Random Forest (optional comparison)
+
+### Advanced Requirements
+
+1. Compare unigram and n-gram representations.
+2. Tune meaningful hyperparameters.
+3. Analyze the effect of vocabulary size and feature selection.
+4. Handle class imbalance where necessary.
+5. Explain why tree-based models may behave differently from linear models on sparse text features.
+
+**Deliverable:** A baseline model comparison with recorded experimental results.
+
+## 6. Task 3: Deep Learning Model Development
+
+Build a neural network for sentiment classification.
+
+Choose one of the following approaches:
+
+- Embedding layer with LSTM or BiLSTM
+- CNN-based text classification
+- Another justified neural text classification architecture
+
+### Requirements
+
+1. Convert text into tokens or numerical sequences.
+2. Create an appropriate vocabulary or tokenization strategy.
+3. Implement padding and sequence-length handling.
+4. Build and train the selected neural network.
+5. Use a suitable loss function and optimizer.
+6. Track training and validation loss and performance.
+7. Implement early stopping or another justified regularization strategy.
+8. Investigate overfitting and underfitting.
+
+### Advanced Challenge
+
+Experiment with at least two meaningful changes, such as:
+
+- Different embedding dimensions.
+- Different sequence lengths.
+- Dropout or weight decay.
+- Learning-rate adjustments.
+- Different model architectures.
+
+Explain how each experiment affected the results.
+
+**Deliverable:** A trained neural network, training history, and experiment comparison.
+
+## 7. Task 4: Transformer-Based Sentiment Classification
+
+Use a pretrained transformer model, such as DistilBERT or BERT, for sentiment classification.
+
+### Requirements
+
+1. Load an appropriate pretrained tokenizer and model.
+2. Prepare the dataset using the model's expected input format.
+3. Fine-tune the model on the selected labelled dataset.
+4. Evaluate it on unseen test data.
+5. Compare its results with the traditional ML and neural network models.
+6. Explain the computational cost and advantages of transformer-based models.
+
+If suitable hardware is unavailable, use a smaller pretrained model or a documented subset of the dataset. Clearly disclose any restrictions.
+
+**Deliverable:** A fine-tuned transformer model or a reproducible training implementation with documented results.
+
+## 8. Task 5: Model Evaluation and Error Analysis
+
+Evaluate all implemented approaches using consistent evaluation data.
+
+### Required Metrics
+
+- Accuracy
+- Precision
+- Recall
+- Macro F1-score
+- Per-class F1-score
+- Confusion matrix
+
+### Analysis Requirements
+
+1. Identify which sentiment class is most frequently misclassified.
+2. Examine at least ten incorrectly classified reviews.
+3. Explain why each selected example may have confused the model.
+4. Investigate negation, sarcasm, mixed sentiment, and ambiguous language.
+5. Compare training, validation, and test performance.
+6. Explain why accuracy alone may be misleading for imbalanced data.
+7. Select the best model based on a justified evaluation strategy.
+
+**Deliverable:** A model evaluation report with visualizations and documented error analysis.
+
+## 9. Task 6: Advanced Generalization Challenge
+
+Test whether the model can generalize beyond the examples it has seen.
+
+Perform at least three of the following experiments:
+
+1. Evaluate performance on reviews containing unseen vocabulary.
+2. Test the effect of misspellings and informal language.
+3. Compare short reviews with long reviews.
+4. Test negation, such as "not good" versus "good".
+5. Test mixed sentiment, such as "great quality but terrible delivery".
+6. Compare performance across different product categories.
+7. Evaluate robustness to irrelevant words or noisy text.
+8. Compare random splitting with a more realistic group-based or time-based split, where appropriate.
+
+Explain the limitations of each experiment and what the results reveal about the model.
+
+## 10. Task 7: Model Optimization and Experiment Tracking
+
+Improve the selected model based on your findings.
+
+### Requirements
+
+1. Establish a reproducible baseline.
+2. Track model configuration, random seed, and evaluation results.
+3. Tune selected hyperparameters using an appropriate validation strategy.
+4. Compare performance and computational cost.
+5. Explain any trade-off between model complexity and generalization.
+6. Save the final model and the associated tokenizer or preprocessing artifacts.
+
+**Important:** Do not use the test set repeatedly to choose hyperparameters or select the best model.
+
+## 11. Expected Project Structure
+
+```
+sentiment-analysis-project/
+│
+├── data/
+├── notebooks/
+│   ├── data_analysis.ipynb
+│   ├── traditional_ml.ipynb
+│   ├── deep_learning.ipynb
+│   └── transformer_model.ipynb
+│
+├── src/
+│   ├── preprocessing.py
+│   ├── train_ml.py
+│   ├── train_dl.py
+│   └── evaluate.py
+│
+├── models/
+├── reports/
+├── requirements.txt
+└── README.md
+```
+
+You may modify this structure if the project remains organized and reproducible.
+
+## 12. Final Deliverables
+
+Submit the following:
+
+1. Dataset source and preparation instructions.
+2. Exploratory data analysis notebook.
+3. Text preprocessing and feature engineering code.
+4. Traditional ML baseline models.
+5. Deep learning model implementation.
+6. Transformer fine-tuning implementation or documented experiment.
+7. Comparison of model performance.
+8. Confusion matrices and classification reports.
+9. Error analysis of incorrectly classified reviews.
+10. Generalization and robustness experiment results.
+11. Saved model and required preprocessing artifacts.
+12. README containing setup instructions, methodology, findings, and limitations.
+13. GitHub repository link.
+
+## 13. Assessment Rules
+
+- You may use official documentation and research papers.
+- Disclose any AI assistance and verify generated code.
+- You must understand and explain your implementation.
+- Do not fabricate results or claim that a model was trained when it was not.
+- Do not use test data for repeated model tuning.
+- Do not hard-code predictions.
+- Document hardware limitations and any reduced dataset size.
+- Prioritize sound experiments, correct evaluation, and meaningful analysis over a polished interface.
+
+---
+
+## END OF CANDIDATE ASSESSMENT
+
+**Submission Instructions:** Submit your GitHub repository and demonstrate your experiments and results. Be prepared to explain your preprocessing decisions, model architecture, evaluation methodology, and observed failure cases.
